@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class App {
+    -name : String
+    -developer : String
+    -version : String
+}
+
+class AppStore {
+    -allApps : App[]
+    -installedApps : App[]
+
+    +install(app: App): void
+    +uninstall(app: App): void
+    +update(app: App): void
+    +findApp(query: String): App
+    +updateApps(): void
+}
+
+AppStore *-- "0..*" App : has
+
+@enduml
