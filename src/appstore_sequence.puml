@@ -1,0 +1,12 @@
+@startuml
+
+autonumber
+hide footbox
+
+participant User as user
+participant AppStore as appStore
+
+user -> appStore: Update Apps
+appStore --> user: All apps are updated
+
+@enduml
