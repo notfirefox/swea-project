@@ -1,0 +1,30 @@
+@startuml
+
+start
+
+:Choose Option;
+if () is (Update Apps) then
+  :Update Apps;
+else (Search App)
+    :Search App;
+
+    if () then (available)
+        :Display App;
+        :Choose Option;
+        switch ()
+        case (Install)
+        :Install App;
+        case (Uninstall)
+        :Uninstall App;
+        case (Update)
+        :Update App;
+        endswitch
+    else (unavailable)
+        :Show Error;
+        detach
+    endif
+endif
+
+stop
+
+@enduml
