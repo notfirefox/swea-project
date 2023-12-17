@@ -1,0 +1,20 @@
+@startuml
+
+package "App Store" {
+    left to right direction
+    actor User as user
+
+    usecase "Install App" as install
+    usecase "Uninstall App" as uninstall
+    usecase "Update App" as update
+    usecase "Update all Apps" as updateAll
+    usecase "Find App" as findApp
+
+    user -> install
+    user --> uninstall
+    user --> update
+    user --> updateAll
+    user --> findApp
+}
+
+@enduml
