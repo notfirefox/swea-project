@@ -1,2 +1,2 @@
-# swea-project
+# SWEA Project
 Software Analysis Project
