@@ -11,11 +11,17 @@ package "App Store" {
     usecase "Update all Apps" as updateAll
     usecase "Find App" as findApp
 
+    usecase "Display App" as displayApp
+    usecase "Show Error" as showError
+
     user -> install
     user --> uninstall
     user --> update
     user --> updateAll
     user --> findApp
+
+    findApp <.. displayApp : <<extend>>
+    findApp <.. showError : <<extend>>
 }
 
 @enduml
