@@ -3,8 +3,8 @@
 start
 
 :Choose Option;
-if () is (Update Apps) then
-  :Update Apps;
+if () is (Update all Apps) then
+  :Update all Apps;
 else (Search App)
     :Search App;
 
