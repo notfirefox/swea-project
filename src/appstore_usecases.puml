@@ -1,8 +1,9 @@
 @startuml
 
+actor User as user
+
 package "App Store" {
     left to right direction
-    actor User as user
 
     usecase "Install App" as install
     usecase "Uninstall App" as uninstall
