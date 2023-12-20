@@ -3,23 +3,29 @@
 start
 
 :Choose Option;
-if () is (Update all Apps) then
-  :Update all Apps;
-else (Search App)
+if () is (Update) then
+  :Make Selection;
+  if () then (all)
+    :Update
+    all Apps;
+  else (subset)
+    :Update
+    subset of
+    Apps;
+  endif
+else (Search)
     :Search App;
 
-    if () then (available)
-        :Display App;
+    if () then (found results)
+        :Select App;
         :Choose Option;
         switch ()
         case (Install)
-        :Install App;
+        :Install;
         case (Uninstall)
-        :Uninstall App;
-        case (Update)
-        :Update App;
+        :Uninstall;
         endswitch
-    else (unavailable)
+    else (no results)
         :Show Error;
         detach
     endif
