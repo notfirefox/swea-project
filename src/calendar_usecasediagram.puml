@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+
+left to right direction
+:User:
+:User2:
+package Calendar {
+    (Look at Events) as (Look) <<main>>
+    (Create new Event) as (Create)
+    (Edit Event) as (Edit)
+    (Delete Event) as (Delete)
+    (Add Alert) as (Add)
+    (Share Event) as (Share)
+}
+
+User -down- (Look)
+(Create) .left.> (Look): <<extends>>
+(Delete) .> (Look): <<extends>>
+(Edit) .up.> (Look): <<extends>>
+(Add) .left.> (Edit): <<extends>>
+(Share) .right.> (Edit): <<extends>>
+(Share) -down-> (User2)
+
+@enduml

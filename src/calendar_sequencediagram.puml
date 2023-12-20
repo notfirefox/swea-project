@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+== Activation ==
+actor User
+activate User
+User -> Interface++: Turn on
+Interface -> User: Requests Login
+alt User has Account
+    User -> Interface: Sends login Information
+else User does not have account
+    User -> User: Creates new Account
+    User -> Interface: Sends login Information
+end
+Interface -> Database++: Request Event Information
+Database --> Interface--: Returns Event Information
+
+Interface -> User: Displays Information
+
+== Create new event ==
+
+User -> Interface: Calls create_new() \n and Sends new Event data
+Interface -> Database++: Sends new Event data
+Database -> Database: Sorts
+Database --> Interface--: Confirms success
+Interface --> User: Displays updated \n Event Information
+
+== Add new Alarm ==
+
+User -> Interface: Creates new Alarm
+Interface -> Database++: Appends Alarm to Event
+Database --> Interface--: Confirms success
+Interface --> User: Displays updated data
+
+== Alarm activates while app closed ==
+
+User -> Interface: Closes App
+Interface -> Interface: Waits for Alarm
+Interface -> User: Sends Notification
+
+@enduml

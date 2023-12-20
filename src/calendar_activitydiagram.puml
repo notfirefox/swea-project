@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:Opens Calendar;
+if (User has Account?) then (yes)
+
+else (no)
+    :User Creates new Account;
+endif
+repeat :User logs in;
+switch (User chooses action)
+case(Add Event)
+    :New Event is\nadded to Database;
+case(Edit Event)
+    :Event in Database\nis modified;
+case(Delete Event)
+    :Event is Deleted\nfrom Database;
+case(Add Alarm)
+    :Alarm is added to Event;
+endswitch
+if (More Actions?) then (Yes)
+
+
+else (No)
+    stop
+
+@enduml
