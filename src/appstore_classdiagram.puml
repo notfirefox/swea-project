@@ -7,6 +7,7 @@ class App {
     -developer : String
     -version : String
     +isUpToDate(): boolean
+    +report(reason: String) : void
 }
 
 class AppStore {
