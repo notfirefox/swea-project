@@ -5,30 +5,31 @@ actor User as user
 package "App Store" {
     left to right direction
 
-    usecase install as "Install App"
-    usecase uninstall as "Uninstall App"
+    usecase install as "Install"
+    usecase uninstall as "Uninstall"
     usecase update as "Update"
-    usecase updateSubset as "Update Subset"
+    usecase updateSubset as "Update subset\n of Apps"
     usecase updateAll as "Update all Apps"
     usecase findApp as "Find App
     --
-    App available
-    App unavailable
+    found results
+    no results
     "
 
-    usecase "Display App" as displayApp
+    usecase "Select App" as selectApp
     usecase "Show Error" as showError
 
-    user -- install
-    user -- uninstall
     user -- update
     user -- findApp
 
     update <|-- updateAll
     update <|-- updateSubset
 
-    findApp <.. displayApp : "<<extend>>\n (App available)"
-    findApp <.. showError : "<<extend>>\n (App unavailable)"
+    findApp <.. selectApp : "<<extend>>\n (found results)"
+    findApp <.. showError : "<<extend>>\n (no results)"
+
+    selectApp <.. install : "<<extend>>\n (install)"
+    selectApp <.. uninstall : "<<extend>>\n (uninstall)"
 }
 
 @enduml
