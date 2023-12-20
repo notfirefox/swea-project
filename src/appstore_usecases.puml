@@ -7,7 +7,8 @@ package "App Store" {
 
     usecase install as "Install App"
     usecase uninstall as "Uninstall App"
-    usecase update as "Update App"
+    usecase update as "Update"
+    usecase updateSubset as "Update Subset"
     usecase updateAll as "Update all Apps"
     usecase findApp as "Find App
     --
@@ -21,8 +22,10 @@ package "App Store" {
     user -- install
     user -- uninstall
     user -- update
-    user -- updateAll
     user -- findApp
+
+    update <|-- updateAll
+    update <|-- updateSubset
 
     findApp <.. displayApp : "<<extend>>\n (App available)"
     findApp <.. showError : "<<extend>>\n (App unavailable)"
