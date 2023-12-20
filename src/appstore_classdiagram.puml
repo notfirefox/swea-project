@@ -17,6 +17,7 @@ class AppStore {
     +install(app: App): void
     +uninstall(app: App): void
     +update(app: App): void
+    +getInstalledApps(): App[]
     +searchForApp(query: String): App[]
     +selectApp(apps: App[]) : App
     +updateApps(): void
