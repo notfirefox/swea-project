@@ -1,0 +1,14 @@
+@startuml
+
+autonumber
+hide footbox
+
+participant user as "User"
+participant appStore as "App Store"
+
+user --> appStore: getInstalledApps
+appStore --> user: return App[]
+user --> appStore: updateApps
+appStore --> user: return
+
+@enduml
