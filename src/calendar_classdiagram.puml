@@ -1,0 +1,68 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Account {
+    -name : string
+    -phone : string
+    -mail : string
+    +login()
+}
+
+class Interface {
+    -day : Daily_view
+    -month : Monthly_view
+    -year : Yearly_view
+    -list : List_view
+    +create_new()
+}
+
+class Daily_view {
+    -year : int
+    -month : string
+    -day : int
+    -data : Event[]
+}
+
+class Monthly_view {
+    -year : int
+    -month : string
+    -data : Event[]
+}
+
+class Yearly_view {
+    -year : int
+    -data : Event[]
+}
+
+class List_view {
+    -data : Event[]
+}
+
+class Event {
+    -name : string
+    -date : int
+    -start_t : int
+    -end_t : int
+    -alerts : Alert[]
+    +edit()
+    +add_alert()
+    +delete()
+    +set_repetition()
+    +share()
+}
+
+class Alert {
+    -offset : int
+}
+
+Interface *-- "1" Daily_view : has
+Interface *-- "1" Monthly_view : has
+Interface *-- "1" Yearly_view : has
+Interface *-- "1" List_view : has
+Daily_view *-- "0..*" Event : has
+Monthly_view *-- "0..*" Event : has
+Yearly_view *-- "0..*" Event : has
+List_view *-- "0..*" Event : has
+Event *-- "0..*" Alert : has
+
+@enduml
