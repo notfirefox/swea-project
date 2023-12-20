@@ -17,6 +17,7 @@ else (Search)
     :Search App;
 
     if () then (found results)
+        :Show List of Results;
         :Select App;
         :Choose Option;
         switch ()
