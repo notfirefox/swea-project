@@ -3,10 +3,14 @@
 autonumber
 hide footbox
 
-participant User as user
-participant AppStore as appStore
+participant user as "User"
+participant appStore as "App Store"
+participant app as "App"
 
-user -> appStore: Update Apps
-appStore --> user: All apps are updated
+user --> appStore: searchForApp
+appStore --> user: return App[]
+user --> appStore: selectApp
+appStore --> appStore: install/uninstall
+appStore --> user: inform user
 
 @enduml

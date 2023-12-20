@@ -10,7 +10,7 @@ package "App Store" {
     usecase update as "Update"
     usecase updateSubset as "Update subset\n of Apps"
     usecase updateAll as "Update all Apps"
-    usecase findApp as "Find App
+    usecase findApp as "Search for App
     --
     found results
     no results
