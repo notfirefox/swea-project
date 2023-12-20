@@ -6,6 +6,7 @@ class App {
     -name : String
     -developer : String
     -version : String
+    +isUpToDate(): boolean
 }
 
 class AppStore {
@@ -15,7 +16,8 @@ class AppStore {
     +install(app: App): void
     +uninstall(app: App): void
     +update(app: App): void
-    +findApp(query: String): App
+    +searchForApp(query: String): App[]
+    +selectApp(apps: App[]) : App
     +updateApps(): void
 }
 
