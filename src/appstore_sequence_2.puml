@@ -3,12 +3,12 @@
 autonumber
 hide footbox
 
-participant user as "User"
+actor User
 participant appStore as "App Store"
 
-user --> appStore: getInstalledApps
-appStore --> user: return App[]
-user --> appStore: updateApps
-appStore --> user: return
+User --> appStore++: getInstalledApps
+appStore --> User: return App[]
+User --> appStore: updateApps
+appStore --> User--: return
 
 @enduml

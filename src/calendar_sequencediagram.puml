@@ -4,6 +4,7 @@
 autonumber
 
 == Activation ==
+
 actor User
 activate User
 User -> Interface++: Turn on
